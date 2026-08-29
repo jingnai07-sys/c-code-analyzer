@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[C] CODE ANALYZER</title>
+<link rel="icon" href="https://raw.githubusercontent.com/mar-sander/assets/refs/heads/main/favicon.ico">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <header class="page-header">
+    <h1 class="page-title">c<span class="subtitle"> code analyzer</span></h1>
+    <div class="page-subtitle">コードの動きとミスの気づきを支援する学習ツール（β版）</div>
+  </header>
+
+  <div class="tool-grid">
+    <section class="section">
+      <h2>コード入力</h2>
+      <textarea id="codeInput" placeholder="ここにC言語コードを入力してください">#include <stdio.h>
+/*C言語の解析ツールです*/
+int main(void){
+    for(int i=1;i<=3;i++){
+        for(int j=1;j<=3;j++){
+            printf("%d - %d\n",i,j);
+        }
+    }
+
+    return 0;
+}</textarea>
+      <div class="control-row" style="margin-top:12px;">
+        <button onclick="analyzeCode()">解析する</button>
+        <button class="reset-btn" onclick="resetCode()" title="リセット" aria-label="入力と結果をリセット"><i class="fa fa-refresh"></i></button>
+      </div>
+      <div class="sample-row">
+        <button class="sample-btn" onclick="loadSample('basic')">SAMPLE：基本</button>
+        <button class="sample-btn" onclick="loadSample('if')">SAMPLE：if文</button>
+        <button class="sample-btn" onclick="loadSample('switch')">SAMPLE：switch文</button>
+        <button class="sample-btn" onclick="loadSample('for')">SAMPLE：for文</button>
+        <button class="sample-btn" onclick="loadSample('nested')">SAMPLE：多重ループ</button>
+        <button class="sample-btn" onclick="loadSample('triangle')">SAMPLE：逆三角形</button>
+        <button class="sample-btn" onclick="loadSample('mistake')">SAMPLE：ミスあり</button>
+        <button class="sample-btn" onclick="loadSample('Array')">SAMPLE：配列</button>
+        <button class="sample-btn" onclick="loadSample('MultiArraypleMatch')">SAMPLE：多重配列</button>
+      </div>
+      <div class="legend-box">
+        <span class="highlight">情報技術検定2級レベル</span>を想定した基本的なコード読解支援に絞っています。複雑な構文は未対応のため、説明には推定を含む場合があります。spaceキー+Ctrlキーを一緒に押すと候補が文字の候補が出てきます。
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>コードと説明</h2>
+      <div id="codePreview" class="code-preview"></div>
+      <div id="variableState" class="variable-area"></div>
+    </section>
+
+    <section class="section">
+      <h2>疑似フローチャート</h2>
+      <div id="flowchartResult" class="flowchart-box"></div>
+    </section>
+
+    <section class="section">
+      <h2>ミス・ヒント</h2>
+      <div id="hintResult" class="result-block"></div>
+    </section>
+  </div>
+
+
+  <footer class="footer">
+
+    <a href="#" class="footer__logo">
+      <img src="makoto2.png" width="120" alt="MM Logo" />
+    </a><!-- 本家にはとても良い機能があるため参考にしましょう -->
+	  <hr />
+  		<p class="copyright">
+    	Copyright © M.M and I.A All Rights Reserved.</p><!-- 上のロゴとここを変えること -->
+  </footer>
+</div>
+<!--Codemirror-->
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
