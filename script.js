@@ -81,7 +81,7 @@ const editor = CodeMirror.fromTextArea(document.getElementById('codeInput'),{
 
 const cKeywords = [//ワードの候補
   'int','float','double','char','void','const','for','if','else','while','switch','case','default',
-  'break','return','printf','scanf','include','main','function','void'
+  'break','return','printf','scanf','include','main','function'
 ];
 
 CodeMirror.registerHelper('hint','clike',function(cm){
