@@ -70,7 +70,7 @@ function extractLoopVar(initText){//繰り返し内の変数名を取り出す
 
 //codemirrorのエディタ
 const editor = CodeMirror.fromTextArea(document.getElementById('codeInput'),{
-  lineNumbers:true,//行番号表示
+  lineNumbers:true,//行番号表示const
   matchBrackets:true,//括弧
   mode:'text/x-csrc',//文字の色
   lineWrapping: true,//長い行を折り返す
@@ -81,7 +81,8 @@ const editor = CodeMirror.fromTextArea(document.getElementById('codeInput'),{
 
 const cKeywords = [//ワードの候補
   'int','float','double','char','void','const','for','if','else','while','switch','case','default',
-  'break','return','printf','scanf','include','main','function'
+  'break','return','printf','scanf','include','main','function','auto','do','enum','extern','goto','inline',
+  'long','register','restrict','short','signed','sizeof','static','struct','typedef','union','unsigned','volatile'
 ];
 
 CodeMirror.registerHelper('hint','clike',function(cm){
