@@ -246,32 +246,62 @@ if (trimmed === '};') {//初期化リスト閉じ
     return;
 }
 
-    const ArrayMatch = trimmed.match(/^(int|float|double|char)\s+([a-zA-Z_]\w*)\s*\[([^\]]*)\]\s*(=\s*\{.*\})?;$/);//配列を探す
-    if(ArrayMatch){
-    const type = ArrayMatch[1];//型代入
-    const name = ArrayMatch[2];//名前
-    const size = ArrayMatch[3].trim();//配列の長さ
-    const init = ArrayMatch[4];//配列の中身
-    let Newinit = init.replace(/[={}]/g, "").trim();
-    if (size.trim() === "") {//trimつかってきれいにしておいてから判定 
-    addAnalysis(analysis, lineNo, `${type}型の${name}という配列を作成しています。中身は<code>${Newinit}</code>です`);
-    pushFlow(`${type}型の${name}という配列作成`, currentDepth,'process');
+const ArrayMatch = trimmed.match(/^(int|float|double|char)\s+([a-zA-Z_]\w*)\s*\[([^\]]*)\]\s*(=\s*\{.*\})?;$/); // 配列を探す
+if (ArrayMatch) {
+  const type = ArrayMatch[1]; //型
+  const name = ArrayMatch[2]; //名前
+  const size = ArrayMatch[3].trim(); //配列の長さ
+  const init = ArrayMatch[4]; //配列の中身（無いとき undefined）
+
+  if (!(name in variableState)) {
+    variableOrder.push(name);
+  }
+  variableState[name] = '配列';
+
+  //初期化なし: int a[3] int a[]
+  if (!init) {
+    if (size === '') {// int a[];
+      addAnalysis(analysis,lineNo,`${type}型の配列 <code>${name}[]</code> を宣言しています。サイズが指定されていません。`);
+      addHint(hints,lineNo,'配列のサイズ','サイズを書くか、<code>int a[] = {1, 2, 3};</code> のように初期化で個数を決めてください。');
+      highlightLines.add(lineNo);
+      pushFlow(`${type}型の配列 ${name}[] を宣言`, currentDepth, 'process');
+    }
+    else {// int a[3];
+      addAnalysis(analysis,lineNo,`${type}型の配列 <code>${name}[${size}]</code> を宣言しています。`);
+      pushFlow(`${type}型のサイズ${size}の配列${name}[]を宣言`, currentDepth, 'process');
+    }
     pushArrow(currentDepth);
     return;
-}
-    else　if(Number(size) !== Newinit.length){
-      addHint(hints, lineNo, '配列の中身と長さに注意','配列の中身と長さが一致していない可能性があります。');
-      highlightLines.add(lineNo);
-      pushFlow(`${type}型,長さ${size}の${name}という配列作成`, currentDepth,'process');
-      pushArrow(currentDepth);
-      return;
-	}
-  else{
-    addAnalysis(analysis, lineNo, `${type}型の<code>${name}</code>という配列を作成しています。長さは<code>${size}</code>です。中身は<code>${Newinit}</code>です`);
-    pushFlow(`${type}型の${name}という配列作成?`, currentDepth,'process');
-    pushArrow(currentDepth);	
+  }
+
+  //初期化あり
+  const Newinit = init.replace(/[={}]/g, '').trim();
+  const elements =
+    Newinit === ''
+      ? []
+      : Newinit.split(',').map((s) => s.trim()).filter((s) => s !== '');
+
+  if (size === '') {// int a[] = {1, 2, 3};
+    addAnalysis(analysis,lineNo,`${type}型の配列 <code>${name}[]</code> を作成しています。中身は <code>${escapeHtml(Newinit)}</code> です。`);
+    pushFlow(`${type}型の配列 ${name}[] を作成`, currentDepth, 'process');
+    pushArrow(currentDepth);
     return;
   }
+
+  if (!isNaN(Number(size)) && Number(size) !== elements.length) {// 長さと要素数が一致しない
+    addAnalysis(analysis,lineNo,`${type}型の配列 <code>${name}[${size}]</code> を作成しています。中身は <code>${escapeHtml(Newinit)}</code> です。`);
+    addHint(hints,lineNo,'配列の中身と長さに注意',`長さは ${size} ですが、初期化の要素は ${elements.length} 個です。一致しているか確認してください。`);
+    highlightLines.add(lineNo);
+    pushFlow(`${type}型,長さ${size}の${name}という配列作成`, currentDepth, 'process');
+    pushArrow(currentDepth);
+    return;
+  }
+
+  // 一致している（または size が数字以外）
+  addAnalysis(analysis,lineNo,`${type}型の配列 <code>${name}</code> を作成しています。サイズは <code>${size}</code> です。中身は <code>${escapeHtml(Newinit)}</code> です。`);
+  pushFlow(`${type}型の${name}という配列作成`, currentDepth, 'process');
+  pushArrow(currentDepth);
+  return;
 }
 
     const declMatch = trimmed.match(/^(int|float|double|char)\s+([a-zA-Z_]\w*)\s*(=\s*(.+))?;$/);//int a = 10;みたいな代入も行う時
