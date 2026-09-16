@@ -1,6 +1,6 @@
 const samples = {
   basic: `#include <stdio.h>\n\nint main(void){\n    int a = 3;\n    int b = 5;\n    int c = a + b;\n    printf("%d\\n", c);\n    return 0;\n}`,
-  if: `#include <stdio.h>\n\nint main(void){\n    int score = 78;\n\n    if(score >= 60){\n        printf("合格です\\n");\n    }\n    if(score <= 20){\n        printf("不合格です\\n");\n    }else{\n        printf("再挑戦です\\n");\n    }\n\n    return 0;\n}`,
+  if: `#include <stdio.h>\n\nint main(void){\n    int score = 78;\n\n    if(score >= 60){\n        printf("合格です\\n");\n    }\n    if(score <= 20){\n        printf("不合格です\\n");\n    }\n    else{\n        printf("再挑戦です\\n");\n    }\n\n    return 0;\n}`,
   for: `#include <stdio.h>\n\nint main(void){\n    int i;\n    int sum = 0;\n\n    for(i = 1; i <= 5; i++){
         sum = sum + i;\n    }\n\n    printf("%d\\n", sum);\n    return 0;\n}`,
   nested: `#include <stdio.h>\n\nint main(void){\n    for(int i=1;i<=3;i++){\n        for(int j=1;j<=3;j++){\n            printf("%d - %d\\n",i,j);\n        }\n    }\n\n    return 0;\n}`,
