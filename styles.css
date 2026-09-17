@@ -435,12 +435,21 @@ button:hover{
   padding: 22px 28px;
 }
 .flow-for,
-.flow-while,
+.flow-while{
+  background-color: #abced8;
+  border: 2px solid white;
+  border-top: 10px solid white;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  border-radius: 8px;
+}
+
 .flow-forfinish{
   background-color: #abced8;
   border: 2px solid white;
-  border-left: 10px solid white;
-  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
   border-radius: 8px;
 }
 .flow-arrow{
