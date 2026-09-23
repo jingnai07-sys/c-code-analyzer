@@ -103,7 +103,7 @@ CodeMirror.registerHelper('hint','clike',function(cm){
   };
 });
 
-function analyzeCode(){
+function analyzeCode(doScroll){
   const code = editor.getValue().replace(/\r\n/g, '\n');
   const lines = code.split('\n');//\nで分割
   const analysis = {};
@@ -563,6 +563,14 @@ if (ArrayMatch) {
     : `<div class="note">変数の状態はまだ見つかっていません。</div>`;
 
   document.getElementById('codePreview').innerHTML = previewHtml;//（）のidを取り出し、=に置き換える
+
+  if (doScroll) {
+    const target = document.getElementById('codePreview');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   document.getElementById('variableState').innerHTML = variableHtml;
   document.getElementById('flowchartResult').innerHTML =flowchart.join('');//フローチャート用
   document.getElementById('hintResult').innerHTML = hints.length
@@ -570,5 +578,5 @@ if (ArrayMatch) {
     : `<div class="hint"><b>大きなミスは見つかっていません。</b><br>次は、変数の値がどう変わるか、条件式がどんな場合に真になるかを自分の言葉で説明できるか試してみましょう。</div>`;
 }
 
-analyzeCode();
+analyzeCode(false);
 
