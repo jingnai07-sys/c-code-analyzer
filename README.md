@@ -34,4 +34,6 @@ if,for,while,switch,配列などの基本構文に取り扱っています。
 
 複雑な構文に関しては、推定を含む場合があります。
 
+現在、バグの検証、UIの改善を行っています
+
 [Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/jingnai07-sys/stackblitz-starters-qnbrpnjh)
