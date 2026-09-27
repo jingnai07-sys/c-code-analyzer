@@ -190,6 +190,62 @@ function analyzeCode(doScroll){
       return;
     }
 
+    const multiDeclMatchs = trimmed.match(/^(int|float|double|char)\s+(.+);$/);//複数宣言
+
+    if (
+      multiDeclMatchs &&
+      multiDeclMatchs[2].includes(',') &&
+      !multiDeclMatchs[2].includes('[') // 配列は除外
+    ) {
+      const type = multiDeclMatchs[1];
+      const parts = multiDeclMatchs[2].split(',');
+
+      const names = [];
+      const details = [];
+
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i].trim();
+        // "a = 3" または "b"
+        const one = part.match(/^([a-zA-Z_]\w*)(?:\s*=\s*(.+))?$/);
+        if (!one) continue;
+
+        const name = one[1];
+        const value = one[2] ? one[2].trim() : null;
+
+        if (!(name in variableState)) {
+          variableOrder.push(name);
+        }
+        variableState[name] = value !== null ? value : type + '型';
+
+        names.push(name);
+        if (value !== null) {
+          details.push(
+            `<code>${name}</code> に <code>${escapeHtml(value)}</code>`
+          );
+        } else {
+          details.push(`<code>${name}</code>（初期化なし）`);
+        }
+      }
+
+      if (names.length >= 2) {
+        addAnalysis(
+          analysis,
+          lineNo,
+          `${type}型の変数をまとめて宣言しています。` +
+            details.join('、') +
+            '。'
+        );
+        pushFlow(
+          `${type}型: ${names.join(', ')} を宣言`,
+          currentDepth,
+          'process'
+        );
+        pushArrow(currentDepth);
+        return;
+      }
+      
+    }
+
     const multiDeclMatch = trimmed.match(/^(int|float|double|char)\s+([a-zA-Z_]\w*(?:\s*,\s*[a-zA-Z_]\w*)+)\s*;$/);//型宣言おんなじ＋複数を見つけ出す\s*,\s*「カンマ+変数名」のセット1回以上繰り返す
     if(multiDeclMatch){//                                                                                ↑一回以上繰り返されるを表す
       const type = multiDeclMatch[1];//型を代入
