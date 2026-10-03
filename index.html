@@ -32,7 +32,7 @@ int main(void){
 }</textarea>
       <div class="control-row" style="margin-top:12px;">
         <button onclick="analyzeCode(true)">解析する</button>
-        <button class="reset-btn" onclick="resetCode()" title="リセット" aria-label="入力と結果をリセット"><i class="fa fa-refresh"></i></button>
+        <button type="button" class="reset-btn" onclick="resetCode()" title="リセット" aria-label="入力と結果をリセット">↻</button>
       </div>
       <div class="sample-row">
         <button class="sample-btn" onclick="loadSample('basic')">SAMPLE：基本</button>
@@ -80,15 +80,14 @@ int main(void){
   </footer>
 </div>
 <!--Codemirror-->
-<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
-<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+<link rel="stylesheet" href="./vendor/codemirror/codemirror.min.css">
+<link rel="stylesheet" href="./vendor/codemirror/addon/hint/show-hint.min.css">
 
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
-
-<script src="script.js"></script>
+<script src="./vendor/codemirror/codemirror.min.js"></script>
+<script src="./vendor/codemirror/mode/clike/clike.min.js"></script>
+<script src="./vendor/codemirror/addon/edit/matchbrackets.min.js"></script>
+<script src="./vendor/codemirror/addon/hint/show-hint.min.js"></script>
+<script src="./script.js"></script>
 
 </body>
 </html>
