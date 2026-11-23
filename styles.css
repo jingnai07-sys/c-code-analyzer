@@ -757,7 +757,7 @@ iframe {
 
 /* ボックス内見出し */
 .sample-guide-title {
-  color: #40e0d0;
+  color: #00a3af;
   font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 12px;
@@ -804,8 +804,8 @@ iframe {
 .start-btn {
   display: inline-block;
   background-color: #161819;
-  color: #4dd0e1;            
-  border: 2px solid #4dd0e1; 
+  color: #00a3af;            
+  border: 2px solid #00a3af; 
   border-radius: 50px;     
   padding: 16px 40px;
   font-size: 1.2rem;
@@ -816,7 +816,7 @@ iframe {
 
 /* マウスを乗せたとき（ホバー時）の色反転 */
 .start-btn:hover {
-  background-color: #4dd0e1;
+  background-color: #00a3af;
   color: #161819;
 }
 
