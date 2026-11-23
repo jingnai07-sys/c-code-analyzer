@@ -833,4 +833,31 @@ iframe {
     margin-top: 10px;
   }
 
+  /* ボタンを中央に配置するエリア */
+.start-btn-area {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+/* 移動ボタン本体 */
+.start-btn {
+  display: inline-block;
+  background-color: #161819; 
+  color: #4dd0e1;          
+  border: 2px solid #4dd0e1; 
+  border-radius: 50px; 
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;     
+  transition: all 0.2s ease; 
+}
+
+/* マウスを乗せたとき（ホバー時）の色反転 */
+.start-btn:hover {
+  background-color: #4dd0e1;
+  color: #161819;
+}
+
 }
