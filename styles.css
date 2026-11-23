@@ -682,7 +682,7 @@ iframe {
 /* 使い方ページのメインエリア */
 .uses {
   width: 100%;
-  box-sizing: border-box; /* 余白を含めて画面幅に収める */
+  box-sizing: border-box; 
   padding: 20px;
 }
 .point {
@@ -694,13 +694,13 @@ iframe {
 /* 画像とキャラクターを横並びにする枠 */
 .step-row {
   display: flex;
-  align-items: flex-end; /* 下揃えにして地面に立っているように見せる */
+  align-items: flex-end; 
   gap: 20px;
   margin-top: 15px;
-  flex-wrap: wrap; /* スマホなど画面が狭いときは自動で縦並びにする */
+  flex-wrap: wrap; /* 画面が狭いとき縦並びにする */
 }
 
-/* スクリーンショット画像 */
+
 .step-screenshot img {
   max-width: 100%;
   height: auto;
@@ -716,7 +716,7 @@ iframe {
 
 /* キャラクター画像のサイズ */
 .chara-img {
-  width: 180px; /* もっと大きくしたい場合は 200px などに調整 */
+  width: 180px; /*大きくしたい場合調整 */
   height: auto;
 }
 
@@ -746,13 +746,13 @@ iframe {
 }
 /* サンプル紹介を目立たせるボックス */
 .sample-guide-box {
-  background-color: #161819; /* 元のページの黒い枠と同じ背景色 */
-  border: 2px solid #4dd0e1; /* 馴染みやすい落ち着いた水色の枠線 */
+  background-color: #161819; 
+  border: 2px solid #4dd0e1; 
   border-radius: 12px;
   padding: 24px 28px;
   margin-top: 35px;
   color: #ffffff;
-  /* box-shadow は削除 */
+  
 }
 
 /* ボックス内見出し */
@@ -771,10 +771,7 @@ iframe {
   font-size: 1rem;
 }
 
-/* SAMPLE色を目立たせる */
-.sample-guide-box strong {
-  color: #dcdcdc;
-}
+
 .bottom-chara-img {
   width: 280px; /*画像調整勲２ */
   height: auto;
