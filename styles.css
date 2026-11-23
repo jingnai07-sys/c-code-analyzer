@@ -773,13 +773,25 @@ iframe {
 
 
 .bottom-chara-img {
-  width: 280px; /*画像調整勲２ */
+  width: 320px; /*画像調整勲２ */
   height: auto;
 }
 .bottom-chara {
-  margin-top: 25px;
+  margin-top: 30px;
   margin-bottom: 30px;
   justify-content: center;
+  align-items: flex-start; 
+  gap: 10px; 
+}
+
+/* 下部の吹き出し調整 */
+.bottom-chara .speech-bubble {
+  margin-top: 25px; /* 上からの高さを小さくすると上がる */
+}
+
+/* 吹き出しのしっぽ */
+.bottom-chara .speech-bubble::before {
+  top: 65%; /* しっぽの位置を少し下 */
 }
 
 
@@ -809,7 +821,16 @@ iframe {
     font-size: 0.9rem;
     padding: 10px 14px;
   }
-  .bottom-chara-img {
-    width: 170px;
+  .bottom-chara {
+    flex-direction: column; /* スマホでは縦並びに切り替え */
+    align-items: center;
   }
+  .bottom-chara-img {
+    width: 240px;
+  }
+
+  .bottom-chara .speech-bubble {
+    margin-top: 10px;
+  }
+
 }
