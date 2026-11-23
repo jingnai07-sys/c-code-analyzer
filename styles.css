@@ -755,9 +755,9 @@ iframe {
   /* box-shadow は削除 */
 }
 
-/* ボックス内の見出し */
+/* ボックス内見出し */
 .sample-guide-title {
-  color: #4dd0e1;
+  color: #40e0d0;
   font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 12px;
@@ -776,7 +776,7 @@ iframe {
   color: #80deea;
 }
 .bottom-chara-img {
-  width: 240px; /*画像調整勲２ */
+  width: 280px; /*画像調整勲２ */
   height: auto;
 }
 .bottom-chara {
