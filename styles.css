@@ -771,9 +771,9 @@ iframe {
   font-size: 1rem;
 }
 
-/* 強調文字SAMPLE色を少し目立たせる */
+/* SAMPLE色を目立たせる */
 .sample-guide-box strong {
-  color: #80deea;
+  color: #dcdcdc;
 }
 .bottom-chara-img {
   width: 280px; /*画像調整勲２ */
