@@ -42,6 +42,14 @@ body {
   font-size: 0.8rem;
 }
 
+.page-subtitle a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.page-subtitle a:hover {
+  opacity: 0.8; /* 少し透けさせてクリックできることを伝える */
+}
 /* ハンバーガーボタン */
 /* ボタンの基本スタイル */
 .hamburger {
