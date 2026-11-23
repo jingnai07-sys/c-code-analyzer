@@ -744,6 +744,51 @@ iframe {
   border-bottom: 11px solid transparent;
   border-right: 16px solid #ffffff;
 }
+/* サンプル紹介を目立たせるボックス */
+.sample-guide-box {
+  background-color: #161819; /* 元のページの黒い枠と同じ背景色 */
+  border: 2px solid #00e5ff; /* 浅葱色の背景に映える明るい枠線 */
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-top: 35px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+/* ボックス内の見出し */
+.sample-guide-title {
+  color: #4dd0e1;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.sample-guide-box p {
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* 文中の「SAMPLE：〇〇」をボタン風バッジにする装飾 */
+.badge-sample {
+  display: inline-block;
+  background-color: #2c2f33;
+  border: 1px solid #555;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.9rem;
+  margin: 2px 2px;
+  color: #fff;
+}
+
+/* 下部のキャラクター配置の余白調整 */
+.bottom-chara {
+  margin-top: 25px;
+  margin-bottom: 30px;
+  justify-content: center; /* 中央寄せにしたい場合（左寄せのままならこの行を削除） */
+}
 /* --- スマホ対応（画面幅768px以下のとき） --- */
 @media screen and (max-width: 768px) {
   /* タイトル文字サイズスマホ向けに小さくする */
