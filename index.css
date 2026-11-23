@@ -1,0 +1,31 @@
+body{
+    font-family: "Fira Code", monospace, sans-serif;
+    background:#000000;
+    color:#eee;
+    line-height:1.7;
+    padding:24px 16px 48px;
+    text-align: center;
+  }
+  
+  h1{
+    font-family: 'Yuji Syuku', serif;
+  
+  }
+  .gate{
+    display: flex;
+    justify-content: center; /* 横中央 */
+    align-items: center;  
+    background:#00a3af;
+    flex-direction: column;
+  }
+  
+  .button{
+    width: 200px;
+    height: 100px;
+    background-color: #000000;
+    color:#eee;
+    font-size: medium;
+    border-radius: 10px;
+    margin: 10px;
+    
+  }

@@ -6,88 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>[C] CODE ANALYZER</title>
 <link rel="icon" href="makoto.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="index.css">
+<!-- Google Fonts の読み込み -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Yuji+Syuku&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
- 
-  <header class="page-header">
-    <h1 class="page-title">c<span class="subtitle"> code analyzer</span></h1>
-    <div class="page-subtitle">コードの動きとミスの気づきを支援する学習ツール（β版）</div>
-  </header>
-
-  <div class="tool-grid">
-    <section class="section">
-      <h2>コード入力</h2>
-      <textarea id="codeInput" placeholder="ここにC言語コードを入力してください">#include <stdio.h>
-/*C言語の解析ツールです*/
-int main(void){
-    for(int i=1;i<=3;i++){
-        for(int j=1;j<=3;j++){
-            printf("%d - %d\n",i,j);
-        }
-    }
-
-    return 0;
-}</textarea>
-      <div class="control-row" style="margin-top:12px;">
-        <button onclick="analyzeCode(true)">解析する</button>
-        <button type="button" class="reset-btn" onclick="resetCode()" title="リセット" aria-label="入力と結果をリセット">↻</button>
-      </div>
-      <div class="sample-row">
-        <button class="sample-btn" onclick="loadSample('basic')">SAMPLE：基本</button>
-        <button class="sample-btn" onclick="loadSample('if')">SAMPLE：if文</button>
-        <button class="sample-btn" onclick="loadSample('switch')">SAMPLE：switch文</button>
-        <button class="sample-btn" onclick="loadSample('for')">SAMPLE：for文</button>
-        <button class="sample-btn" onclick="loadSample('nested')">SAMPLE：多重ループ</button>
-        <button class="sample-btn" onclick="loadSample('triangle')">SAMPLE：逆三角形</button>
-        <button class="sample-btn" onclick="loadSample('mistake')">SAMPLE：ミスあり</button>
-        <button class="sample-btn" onclick="loadSample('Array')">SAMPLE：配列</button>
-        <button class="sample-btn" onclick="loadSample('MultiArraypleMatch')">SAMPLE：多重配列</button>
-      </div>
-      <div class="legend-box">
-        <span class="highlight">情報技術検定2級レベル</span>を想定した基本的なコード読解支援に絞っています。複雑な構文の説明には推定を含む場合があります。spaceキー+Ctrlキーを一緒に押すと文字の候補が出てきます。
-        
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>コードと説明</h2>
-      <div id="codePreview" class="code-preview"></div>
-      <div id="variableState" class="variable-area"></div>
-    </section>
-
-    <section class="section">
-      <h2>疑似フローチャート</h2>
-      <div id="flowchartResult" class="flowchart-box"></div>
-    </section>
-
-    <section class="section">
-      <h2>ミス・ヒント</h2>
-      <div id="hintResult" class="result-block"></div>
-    </section>
+  <h1>C CODE ANALYZERを使ったことがありますか？</h1>
+  <div class = "gate">
+      <button class = "button" onclick="location.href='analyzer.html'">YES</button>
+      <button class = "button" onclick="location.href='analyzer.html'">NO</button>
   </div>
-
-
-  <footer class="footer">
-
-    <a href="#" class="footer__logo">
-      <img src="makoto2.png" width="120" alt="MM Logo" />
-    </a><!-- 本家にはとても良い機能があるため参考にしましょう -->
-	  <hr />
-  		<p class="copyright">
-    	Copyright © M.M and A.I All Rights Reserved.</p><!-- 上のロゴとここを変えること -->
-  </footer>
-</div>
-<!--Codemirror-->
-<link rel="stylesheet" href="./vendor/codemirror/codemirror.min.css">
-<link rel="stylesheet" href="./vendor/codemirror/addon/hint/show-hint.min.css">
-
-<script src="./vendor/codemirror/codemirror.min.js"></script>
-<script src="./vendor/codemirror/mode/clike/clike.min.js"></script>
-<script src="./vendor/codemirror/addon/edit/matchbrackets.min.js"></script>
-<script src="./vendor/codemirror/addon/hint/show-hint.min.js"></script>
-<script src="./script.js"></script>
-
 </body>
-</html>

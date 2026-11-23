@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[C] CODE ANALYZER - 使い方</title>
+    <link rel="icon" href="../makoto.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">
+          c<span class="subtitle"> code analyzer</span>
+        </h1>
+
+        <!-- ハンバーガーボタン -->
+        <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- ナビゲーションメニュー -->
+        <nav class="nav-menu" id="js-nav">
+          <ul>
+            <li><a href="../analyzer.html">C CODE ANALYZER</a></li>
+            <li><a href="use.html">使い方</a></li>
+            <li><a href="../character.html">キャラクター</a></li>
+            <li><a href="../form.html">ご意見・不具合報告</a></li>
+          </ul>
+        </nav>
+
+        
+      </header>
+
+      <div class="uses">
+        <div>
+          <h1>1 <span class="use">自分が書いたコードを入力</span></h1>
+          <p>C言語で書いたコードをコード入力欄に入力しよう</p>
+          <img src="use1.png" alt="使い方１">
+          <p class="point"><span style="background:#426579;">POINT</span></p>
+          <p class="point-1">①　{}を選択し、数が足りているかを確認できる</p>
+          <p>ハイライトが<span style="background:#ff0000;">赤い</span>場合・・・{}が不足している<br>ハイライトが<span style="background:#0000ff;">青い</span>場合・・・{}の数は対応している</p>
+          <p class="point-1">②　キーワード検索が可能</p>
+          <p>「Ctrl」＋「F」キーでキーワード検索ができます</p>
+        </div>
+        <div>
+          <h1>2 <span class="use">「解析する」ボタンを押す</span></h1>
+          <p>「解析する」ボタンを押して解析をしよう</p>
+          <!-- 2 「解析する」ボタンを押す の中身 -->
+<div class="step-row">
+  <!-- 左側：操作画面のスクリーンショット -->
+  <div class="step-screenshot">
+    <img src="use2.png" alt="使い方2">
+  </div>
+
+  <!-- 右側：キャラクターと吹き出し -->
+  <div class="chara-guide">
+    <img src="../isaogorira1.png" alt="キャラクター" class="chara-img">
+    <div class="speech-bubble">
+      解析するボタンを押してね！
+    </div>
+  </div>
+</div>
+        </div>
+        <div>
+          <h1>3 <span class="use">結果を確認</span></h1>
+          <p>画面を下にスクロールして、3つの項目を確認しよう</p>
+          <p class="point-1">①　コードと説明</p>
+          <p>一行ずつコードの説明が書かれます</p>
+          <img src="use3.png" alt="使い方3">
+          <p class="point-1"p>②　疑似フローチャート</p>
+          <p>コードに合わせフローチャートが自動で作成されます</p>
+          <img src="use4.png" alt="使い方4">
+          <p class="point-1">③　ミス・ヒント</p>
+          <p>コードにミスがある場合、修正するためのヒントが表示されます</p>
+          <img src="use5.png" alt="使い方5">
+
+        </div>
+      </div>
+      <!-- 目立たせるサンプル紹介ボックス -->
+<div class="sample-guide-box">
+  <h3 class="sample-guide-title">💡 まずはサンプルからコードを選んで、試してみよう！</h3>
+  <p>
+    <span class="badge-sample">SAMPLE：基本</span>
+    <span class="badge-sample">SAMPLE：if文</span>
+    <span class="badge-sample">SAMPLE：for文</span>
+    などのボタンを押すと、あらかじめ用意されたC言語のコードが自動入力されます。<br>
+    まずは <span class="badge-sample">SAMPLE：ミスあり</span> などを押して <strong>「解析する」</strong> を試してみると、ツールの動きがすぐに体験できます！[cite: 17]
+  </p>
+</div>
+
+<!-- 下に表示するキャラクターと吹き出し -->
+<div class="chara-guide bottom-chara">
+  <img src="../サムズアップ画像のファイル名.png" alt="サムズアップするキャラクター" class="chara-img">
+  <div class="speech-bubble">
+    まずは動かしてみよう！
+  </div>
+</div>
+    
+
+    <!-- JavaScriptの読み込み -->
+   
+    <footer class="footer">
+      <a href="#" class="footer__logo">
+        <img src="../makoto2.png" width="120" alt="MM Logo" /> </a
+      ><!-- 本家にはとても良い機能があるため参考にしましょう -->
+      <hr />
+
+      <p class="copyright">Copyright © M.M and I.A All Rights Reserved.</p>
+      <!-- 上のロゴとここを変えること -->
+    </footer>
+  </div>
+  </body>
+  <!-- ../script.js の代わりに、ハンバーガー用のコードだけを直接書く -->
+  <script>
+    const hamburger = document.getElementById('js-hamburger');
+    const nav = document.getElementById('js-nav');
+
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+      });
+    }
+  </script>
+</body>
+</html>
