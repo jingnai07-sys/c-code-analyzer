@@ -864,7 +864,19 @@ iframe {
   }
 
   .bottom-chara .speech-bubble {
-    margin-top: 10px;
+    margin-top: 14px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .bottom-chara .speech-bubble::before {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #ffffff;
+    border-top: none;
   }
 
   .start-btn {
